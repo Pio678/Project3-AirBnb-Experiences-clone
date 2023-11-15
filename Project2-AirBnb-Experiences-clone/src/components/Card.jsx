@@ -1,11 +1,19 @@
-import starImg from "../assets/Star.svg";
+import starImg from "../../public/Star.svg";
 
-function Card({ cardImg }) {
+function Card({
+  cardImg,
+  experienceName,
+  price,
+  rating,
+  reviewCount,
+  country,
+  status,
+}) {
   return (
     <div className="card">
       <div className="card-img-container">
         <img className="card-img" src={cardImg} />
-        <p className="status">SOLD-OUT</p>
+        <p className="status">{status}</p>
       </div>
 
       <div className="card-details-container">
@@ -15,14 +23,14 @@ function Card({ cardImg }) {
             src={starImg}
             alt="picture of a star"
           />
-          <span className="card-rating"> 5.0 </span>
-          (6) &#8901; USA
+          <span className="card-rating"> {rating}</span>({reviewCount}) &#8901;{" "}
+          {country}
         </div>
 
-        <p className="card-description">Life lessons with Katie Zaferes</p>
+        <p className="card-description">{experienceName}</p>
 
         <p className="card-price">
-          <strong>From $136</strong> / person
+          <strong>From ${price}</strong> / person
         </p>
       </div>
     </div>

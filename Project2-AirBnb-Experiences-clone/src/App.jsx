@@ -3,17 +3,28 @@ import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import "./css/normalize.css";
 import "./css/style.css";
-
-import cardImg1 from "./assets/card_img1.png";
+import cardData from "./assets/data";
 
 function App() {
+  const Cards = cardData.map((data) => {
+    return (
+      <Card
+        cardImg={data.coverImg}
+        experienceName={data.title}
+        price={data.price}
+        rating={data.stats.rating}
+        reviewCount={data.stats.reviewCount}
+        country={data.location}
+        status="SOLD-OUT"
+      />
+    );
+  });
+
   return (
     <>
       <Navbar />
       <Hero />
-      <div className="card-container">
-        <Card cardImg={cardImg1} />
-      </div>
+      <div className="card-container">{Cards}</div>
     </>
   );
 }
