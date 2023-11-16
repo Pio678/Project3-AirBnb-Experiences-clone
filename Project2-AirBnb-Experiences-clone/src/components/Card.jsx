@@ -7,13 +7,22 @@ function Card({
   rating,
   reviewCount,
   country,
-  status,
+  openSpots,
+  location,
 }) {
+  let badgeText;
+
+  if (openSpots === 0) {
+    badgeText = "SOLD-OUT";
+  } else if (location === "Online") {
+    badgeText = "ONLINE";
+  }
+
   return (
     <div className="card">
       <div className="card-img-container">
         <img className="card-img" src={cardImg} />
-        <p className="status">{status}</p>
+        {badgeText && <p className="status">{badgeText}</p>}
       </div>
 
       <div className="card-details-container">

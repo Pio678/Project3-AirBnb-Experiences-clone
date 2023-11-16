@@ -9,13 +9,15 @@ function App() {
   const Cards = cardData.map((data) => {
     return (
       <Card
+        key={data.id}
         cardImg={data.coverImg}
         experienceName={data.title}
         price={data.price}
         rating={data.stats.rating}
         reviewCount={data.stats.reviewCount}
         country={data.location}
-        status="SOLD-OUT"
+        openSpots={data.openSpots}
+        location={data.location}
       />
     );
   });
